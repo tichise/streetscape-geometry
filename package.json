@@ -7,6 +7,10 @@
     "name": "tichise",
     "url": "https://github.com/tichise"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tichise/streetscape-geometry.git"
+  },
   "keywords": [
     "GeoSpatialAPI"
   ],
