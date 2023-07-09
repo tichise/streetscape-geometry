@@ -1,0 +1,20 @@
+{
+  "name": "tokyo.tichise.streetscape-geometry",
+  "displayName": "StreetscapeGeometry",
+  "version": "0.9.0",
+  "unity": "2021.3",
+  "author": {
+    "name": "tichise",
+    "url": "https://github.com/tichise"
+  },
+  "keywords": [
+    "GeoSpatialAPI"
+  ],
+  "dependencies": {
+    "com.unity.xr.arfoundation": "5.0.3",
+    "com.unity.xr.arcore": "5.0.3",
+    "com.unity.xr.arkit": "5.0.3",
+    "com.google.ar.core.arfoundation.extensions": "1.37.0"
+  },
+  "description": "Library for calling StreetscapeGeometry API"
+}
