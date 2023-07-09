@@ -514,6 +514,9 @@ namespace tichise.StreetscapeGeometry
                 // レンダーオブジェクトのメッシュを設定します。
                 renderObject.GetComponent<MeshFilter>().mesh = streetscapegeometry.mesh;
 
+                // castShadowを無効にします。
+                renderObject.GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+
                 // レンダーオブジェクトのマテリアルを設定します。
                 if (streetscapegeometry.streetscapeGeometryType == StreetscapeGeometryType.Building)
                 {
