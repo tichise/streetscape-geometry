@@ -8,6 +8,8 @@ A library for calling the ARCore Streetscape Geometry API.
 Unity 2021 LTS
 
 ## How to Try
+<img width="949" alt="image" src="https://github.com/tichise/streetscape-geometry/assets/43707/e374a1e1-c648-44d9-8f83-0cea39daa6ef">
+
 
 ## Tips
 
