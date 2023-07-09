@@ -514,6 +514,9 @@ namespace tichise.StreetscapeGeometry
                 // レンダーオブジェクトのメッシュを設定します。
                 renderObject.GetComponent<MeshFilter>().mesh = streetscapegeometry.mesh;
 
+                // castShadowを無効にします。
+                renderObject.GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+
                 // レンダーオブジェクトのマテリアルを設定します。
                 if (streetscapegeometry.streetscapeGeometryType == StreetscapeGeometryType.Building)
                 {
@@ -557,6 +560,13 @@ namespace tichise.StreetscapeGeometry
 
                 // レンダーオブジェクトの回転を設定します。
                 renderObject.transform.rotation = streetscapegeometry.pose.rotation;
+
+                // レンダーオブジェクトのマテリアルを設定します。
+                if (streetscapegeometry.streetscapeGeometryType == StreetscapeGeometryType.Building)
+                {
+                    // ビルディングマテリアルを設定します。
+                    renderObject.GetComponent<MeshRenderer>().material = StreetscapeGeometryMaterialBuilding[0];
+                }
             }
         }
 
