@@ -784,5 +784,28 @@ namespace tichise.StreetscapeGeometry
                 GeometryToggle.gameObject.SetActive(ative); // ジオメトリトグルを無効にします。
             }
         }
+
+        /// <summary>
+        /// 街並みのジオメトリを更新します。
+        /// </summary>
+        public void UpdateMaterials () {
+            foreach (ARStreetscapeGeometry streetscapegeometry in _updatedStreetscapeGeometrys) {
+                // 街並みのジオメトリをシーンに追加する必要がない場合
+                
+                // レンダーオブジェクトが存在しない場合は、何もしません。
+                if (_streetscapegeometryGOs.ContainsKey(streetscapegeometry.trackableId))
+                {
+                    // レンダーオブジェクトの位置と回転を更新します。
+                    GameObject renderObject = _streetscapegeometryGOs[streetscapegeometry.trackableId];
+
+                    // レンダーオブジェクトのマテリアルを設定します。
+                    if (streetscapegeometry.streetscapeGeometryType == StreetscapeGeometryType.Building)
+                    {
+                        // ビルディングマテリアルを設定します。
+                        renderObject.GetComponent<MeshRenderer>().material = StreetscapeGeometryMaterialBuilding[0];
+                    }
+                }
+            }
+        }
     }
 }
