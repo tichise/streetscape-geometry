@@ -1,4 +1,4 @@
-namespace tichise.Geospatial
+namespace tichise.StreetscapeGeometry
 {
     using System;
     using System.Collections;
