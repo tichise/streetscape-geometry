@@ -50,7 +50,7 @@ namespace tichise.StreetscapeGeometry
         /// <summary>
         /// 街路形状を可視化するUI要素。
         /// </summary>
-        public Toggle GeometryToggle;
+        public GameObject GeometrySwitch;
 
         public Text? InfoText;
         public Text? HelpText;
@@ -155,7 +155,7 @@ namespace tichise.StreetscapeGeometry
         /// ジオメトリの可視化を有効にする必要があるかどうかを決定します。
         /// </summary>
         /// <param name="enabled"></param>
-        public void OnGeometryToggled(bool enabled)
+        public void OnGeometrySwitchd(bool enabled)
         {
             _streetscapeGeometryVisibility = enabled;
             if (!_streetscapeGeometryVisibility)
@@ -168,14 +168,14 @@ namespace tichise.StreetscapeGeometry
         /// ジオメトリの可視化を有効にする
         /// </summary>
         public void EnableGeometoryVisualization() {
-            OnGeometryToggled(true);
+            OnGeometrySwitchd(true);
         }
 
         /// <summary>
         ///  ジオメトリの可視化を無効にする
         /// </summary>
         public void DisableGeometoryVisualization() {
-            OnGeometryToggled(false);
+            OnGeometrySwitchd(false);
         }
 
         /// <summary>
@@ -220,14 +220,10 @@ namespace tichise.StreetscapeGeometry
             _isReturning = false;
             _enablingGeospatial = false; 
 
-            SetGeometryToggle(false); // ジオメトリトグルを無効にします。
+            SetGeometrySwitch(false); // ジオメトリトグルを無効にします。
            
             if (DebugText != null) {
                 DebugText.gameObject.SetActive(Debug.isDebugBuild && EarthManager != null);
-            }
-
-            if (GeometryToggle != null) {
-                GeometryToggle.onValueChanged.AddListener(OnGeometryToggled); // トグルの値が変更されたときに呼び出されるコールバックを登録します。
             }
 
             _localizationPassedTime = 0f;
@@ -361,7 +357,7 @@ namespace tichise.StreetscapeGeometry
                     _localizationPassedTime = 0f;
 
                     // 街並みのジオメトリをシーンから削除する必要がある場合
-                    SetGeometryToggle(false);
+                    SetGeometrySwitch(false);
                 }
 
                 if (_localizationPassedTime > _timeoutSeconds)
@@ -394,7 +390,7 @@ namespace tichise.StreetscapeGeometry
                 _localizationPassedTime = 0f;
 
                 // 街並みのジオメトリをシーンに追加する必要がある場合
-                SetGeometryToggle(true);
+                SetGeometrySwitch(true);
 
                 if (HelpText != null) {
                     HelpText.text = _localizationSuccessMessage;
@@ -717,7 +713,7 @@ namespace tichise.StreetscapeGeometry
                 return;
             }
 
-            SetGeometryToggle(false);
+            SetGeometrySwitch(false);
 
             Debug.LogError(reason);
 
@@ -778,10 +774,10 @@ namespace tichise.StreetscapeGeometry
         }
 
 
-        // GeometryToggleのActiveを切り替える
-        public void SetGeometryToggle(bool ative) {
-            if (GeometryToggle != null) {
-                GeometryToggle.gameObject.SetActive(ative); // ジオメトリトグルを無効にします。
+        // GeometrySwitchのActiveを切り替える
+        public void SetGeometrySwitch(bool active) {
+            if (GeometrySwitch != null) {
+                GeometrySwitch.SetActive(active); // ジオメトリトグルを無効にします。
             }
         }
 
