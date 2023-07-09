@@ -1,4 +1,4 @@
-# streetscape-geometry - 
+# streetscape-geometry
 
 A library for calling the ARCore Streetscape Geometry API.
 
