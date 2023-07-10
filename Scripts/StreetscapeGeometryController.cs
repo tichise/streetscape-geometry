@@ -192,9 +192,6 @@ namespace tichise.StreetscapeGeometry
             Screen.orientation = ScreenOrientation.Portrait;
             */
 
-            // フレームレートを60fpsに設定します。
-            Application.targetFrameRate = 60;
-
             if (SessionOrigin == null)
             {
                 Debug.LogError("Cannot find ARSessionOrigin.");
